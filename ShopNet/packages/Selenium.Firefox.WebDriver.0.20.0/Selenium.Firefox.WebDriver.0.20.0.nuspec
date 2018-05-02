@@ -1,0 +1,31 @@
+<?xml version="1.0"?>
+<package xmlns="http://schemas.microsoft.com/packaging/2011/08/nuspec.xsd">
+  <metadata>
+    <id>Selenium.Firefox.WebDriver</id>
+    <version>0.20.0</version>
+    <authors>jbaranda</authors>
+    <owners>jbaranda</owners>
+    <licenseUrl>http://unlicense.org/</licenseUrl>
+    <projectUrl>https://github.com/jbaranda/nupkg-selenium-webdrivers</projectUrl>
+    <requireLicenseAcceptance>false</requireLicenseAcceptance>
+    <description>Repurposed nuget package of Selenium.WebDriver.ChromeDriver but for Firefox Driver instead
+	Install Firefox Driver(Win64) Marionette for Selenium WebDriver into your Unit Test Project.
+	"geckodriver.exe" is copied to bin folder from package folder when the build process.
+	NuGet package restoring ready, and no need to commit "geckodriver.exe" binary into source code control repository.</description>
+    <summary>Selenium Firefox WebDriver Marionette (Win64)</summary>
+    <releaseNotes>v0.20.0 - FIrefox Driver 0.20.0 release - https://github.com/mozilla/geckodriver/releases/tag/v0.20.0
+    v0.19.1 - FIrefox Driver 0.19.1 release - https://github.com/mozilla/geckodriver/releases/tag/v0.19.1
+    v0.19.0 - Firefox Driver 0.19.0 release - https://github.com/mozilla/geckodriver/releases/tag/v0.19.0
+    v0.18.0 - Firefox Driver 0.18.0 release - https://github.com/mozilla/geckodriver/releases/tag/v0.18.0
+    v0.17.0 - Firefox Driver 0.17.0 release - https://github.com/mozilla/geckodriver/releases/tag/v0.17.0
+    v0.16.1 - Firefox Driver 0.16.1 release - https://github.com/mozilla/geckodriver/releases/tag/v0.16.1
+    v0.16.0 - Firefox Driver 0.16.0 release - https://github.com/mozilla/geckodriver/releases/tag/v0.16.0
+    v0.15.0 - Firefox Driver 0.15.0 release - https://github.com/mozilla/geckodriver/releases/tag/v0.15.0
+    v0.14.0 - Firefox Driver 0.14.0 release - https://github.com/mozilla/geckodriver/releases/tag/v0.14.0
+    v0.13.0 - Firefox Driver 0.13.0 release - https://github.com/mozilla/geckodriver/releases/tag/v0.13.0
+    v0.12.0 - Firefox Driver 0.12.0 release - https://github.com/mozilla/geckodriver/releases/tag/v0.12.0
+    v0.11.1 - Firefox Driver 0.11.1 release - https://github.com/mozilla/geckodriver/releases/tag/v0.11.1</releaseNotes>
+    <language>en-US</language>
+    <tags>Selenium WebDriver Firefox</tags>
+  </metadata>
+</package>

@@ -1,0 +1,23 @@
+<?xml version="1.0"?>
+<package xmlns="http://schemas.microsoft.com/packaging/2011/08/nuspec.xsd">
+  <metadata>
+    <id>Selenium.EFWExtensions</id>
+    <version>1.0.2.13</version>
+    <title>Selenium EFW Extensions</title>
+    <authors>Mark Hatcher</authors>
+    <owners>Mark Hatcher</owners>
+    <projectUrl>https://github.com/tehmarken/SeleniumEFWExtensions</projectUrl>
+    <requireLicenseAcceptance>false</requireLicenseAcceptance>
+    <description>A handful of useful base object classes and extension methods for wrapping a Selenium WebDriver in an Event Firing WebDriver. Among these are console logging of driver actions, screenshots when tests run into errors, and waits on javascript execution.</description>
+    <summary>Selenium extensions/framework focused around an EventFiringWebdriver</summary>
+    <releaseNotes>- Made the LogNavigation triggered event virtual, so that you can define your own actions when navigating to a url. Still defaults to a simple Console.Writeline of the URL you are navigating to.</releaseNotes>
+    <copyright>Copyright ©  2015</copyright>
+    <language>en-US</language>
+    <tags>Selenium</tags>
+    <dependencies>
+      <dependency id="NUnit" version="2.6.4" />
+      <dependency id="Selenium.WebDriver" version="2.48.0" />
+      <dependency id="Selenium.Support" version="2.48.0" />
+    </dependencies>
+  </metadata>
+</package>
