@@ -29,6 +29,7 @@ namespace ShopNet
             //driver.Quit();
             waitf = new WebDriverWait(driver, t);
 
+
         }
 
         [Test]
@@ -108,6 +109,7 @@ namespace ShopNet
       //    Assert.AreEqual(alertText, @"Vul alsjeblieft een geldig e-mailadres in (bijvoorbeeld voornaam.achternaam@domein.nl).");
 
           }
+
 
         [Test]
        public void LoginWithIncorrectPsw() //
