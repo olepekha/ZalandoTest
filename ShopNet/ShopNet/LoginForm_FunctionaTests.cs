@@ -76,9 +76,11 @@ namespace ShopNet
         {
         driver.Navigate().GoToUrl("https://www.zalando.nl/dames-home/");
         driver.FindElement(By.ClassName("z-navicat-header_navToolLabel")).Click();
+        waitf.Until(ExpectedConditions.ElementIsVisible(By.Name("login.email")));
         driver.FindElement(By.Name("login.email")).SendKeys("o.qw@rambler.ru"); //o.ya@ro.ru
         driver.FindElement(By.Name("login.password")).SendKeys("1111111111");
         driver.FindElement(By.CssSelector(".z-button.z-coast-reef_login_button.z-button--primary.z-button--button")).Click();
+
         waitf.Until(ExpectedConditions.UrlContains("myaccount"));
         Assert.AreEqual(@"https://www.zalando.nl/myaccount/",driver.Url);
         }
@@ -93,9 +95,11 @@ namespace ShopNet
           {
           driver.Navigate().GoToUrl("https://www.zalando.nl/dames-home/");
           driver.FindElement(By.ClassName("z-navicat-header_navToolLabel")).Click();
+          waitf.Until(ExpectedConditions.ElementIsVisible(By.Name("login.email")));
           driver.FindElement(By.Name("login.email")).SendKeys("o.qw@ra"); //o.ya@ro.ru
           driver.FindElement(By.Name("login.password")).SendKeys("1111111111");
           driver.FindElement(By.CssSelector(".z-button.z-coast-reef_login_button.z-button--primary.z-button--button")).Click();
+          waitf.Until(ExpectedConditions.ElementIsVisible(By.CssSelector(@".z-text.z-notification__content.z-text-detail-micro.z-text-black"));
 
 
          var a = driver.FindElement(By.CssSelector(@".z-text.z-notification__content.z-text-detail-micro.z-text-black")).Text;
