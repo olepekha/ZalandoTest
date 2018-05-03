@@ -99,15 +99,14 @@ namespace ShopNet
           driver.FindElement(By.Name("login.email")).SendKeys("o.qw@ra"); //o.ya@ro.ru
           driver.FindElement(By.Name("login.password")).SendKeys("1111111111");
           driver.FindElement(By.CssSelector(".z-button.z-coast-reef_login_button.z-button--primary.z-button--button")).Click();
-          waitf.Until(ExpectedConditions.ElementIsVisible(By.CssSelector(@".z-text.z-notification__content.z-text-detail-micro.z-text-black"));
+          waitf.Until(ExpectedConditions.ElementIsVisible(By.CssSelector(@".z-text.z-notification__content.z-text-detail-micro.z-text-black")));
 
 
          var a = driver.FindElement(By.CssSelector(@".z-text.z-notification__content.z-text-detail-micro.z-text-black")).Text;
          Assert.AreEqual("Vul alsjeblieft een geldig e-mailadres in (bijvoorbeeld voornaam.achternaam@domein.nl).", a);
-        // var a = waitf.Until(ExpectedConditions.AlertIsPresent());
-          //Assert.AreEqual(@"Vul alsjeblieft een geldig e-mailadres in (bijvoorbeeld voornaam.achternaam@domein.nl).", a);  
-       
 
+        //  var a = waitf.Until(ExpectedConditions.AlertIsPresent());
+       //   Assert.AreEqual(@"Vul alsjeblieft een geldig e-mailadres in (bijvoorbeeld voornaam.achternaam@domein.nl).", a);  
       //    IAlert simpleAlert = driver.SwitchTo().Alert();
       //    var alertText = simpleAlert.Text;
       //    Assert.AreEqual(alertText, @"Vul alsjeblieft een geldig e-mailadres in (bijvoorbeeld voornaam.achternaam@domein.nl).");
