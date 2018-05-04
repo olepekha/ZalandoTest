@@ -43,30 +43,44 @@ namespace ShopNet
             driver.FindElement(By.Name("register.password")).SendKeys("1111111111");
            
             IWebElement radioBtn_gender = driver.FindElement(By.Name("register.gender"));
+           // waitf.Until(ExpectedConditions.ElementToBeClickable(By.Name("register.gender")));
             radioBtn_gender.Click();
 
+
             IWebElement checkBtn_TermsAndConditions = driver.FindElement(By.Name("register.terms-and-conditions-checkbox"));
+           // waitf.Until(ExpectedConditions.ElementToBeClickable(By.Name("register.terms-and-conditions-checkbox")));
             checkBtn_TermsAndConditions.Click();
 
+            
 
             driver.FindElement(By.CssSelector(".z-button.z-button--primary.z-button--button")).Click();
+
             waitf.Until(ExpectedConditions.UrlContains("mijnaccount"));
-           // driver.Manage().Timeouts().PageLoad = new TimeSpan(0,0,20);
+
+            //driver.Manage().Timeouts().PageLoad = new TimeSpan(0,0,20);
             Assert.AreEqual( @"https://www.zalando.nl/mijnaccount/", driver.Url);
 
-       //  var myAccountElement = driver.FindElement(By.CssSelector("#fieldAccountAccountBox"));// 
+            var myAccountElement = driver.FindElement(By.CssSelector("#fieldAccountAccountBox"));// 
+            
 
-            //var myAccountElement = driver.FindElement(By.ClassName("z-navicat-header_navToolLabel"));
+                      // var myAccountElement = driver.FindElement(By.ClassName("z-navicat-header_navToolLabel"));
 
-      //   Actions action = new Actions(driver); // подключить OpenQA.Selenium.Interactions, action дает возможность работать с мышкой
-        // action.MoveToElement(myAccountElement).MoveToElement(driver.FindElement(By.CssSelector(@"#logoutLink"))).Click().Perform();
-      //   action.MoveToElement(myAccountElement).MoveToElement(driver.FindElement(By.ClassName(@"z-navicat-header_userAccountLogout"))).Click().Perform();
-        
+          
+                Actions action = new Actions(driver);
+            // подключить OpenQA.Selenium.Interactions, action дает возможность работать с мышкой
 
-      
-       // waitf.Until(ExpectedConditions.ElementIsVisible(By.CssSelector(".z-navicat-header_userAccountRegister")));
+                waitf.Until(ExpectedConditions.VisibilityOfAllElementsLocatedBy(By.Id("fieldAccountAccountBox")));
 
-      //   waitf.Until(ExpectedConditions.TextToBePresentInElement(driver.FindElement(By.CssSelector(".z-text.z-navicat-header_navToolLabelName.z-text-cta.z-text-black")), "inloggen"));
+                action.MoveToElement(myAccountElement).Perform();
+            
+                waitf.Until(ExpectedConditions.ElementIsVisible(By.Id("customerAccountBoxLayer")));
+                
+            
+           var logout = driver.FindElement(By.PartialLinkText("Uitloggen"));
+           logout.Click();
+           
+                  waitf.Until(ExpectedConditions.UrlContains("https://www.zalando.nl/dames-home/"));
+                  Assert.AreEqual(@"https://www.zalando.nl/dames-home/", driver.Url);
 
         }
 
@@ -98,10 +112,9 @@ namespace ShopNet
           waitf.Until(ExpectedConditions.ElementIsVisible(By.Name("login.email")));
           driver.FindElement(By.Name("login.email")).SendKeys("o.qw@ra"); //o.ya@ro.ru
           driver.FindElement(By.Name("login.password")).SendKeys("1111111111");
-          driver.FindElement(By.CssSelector(".z-button.z-coast-reef_login_button.z-button--primary.z-button--button")).Click();
-          waitf.Until(ExpectedConditions.ElementIsVisible(By.CssSelector(@".z-text.z-notification__content.z-text-detail-micro.z-text-black")));
-
-
+         driver.FindElement(By.CssSelector(".z-button.z-coast-reef_login_button.z-button--primary.z-button--button")).Click();
+         waitf.Until(ExpectedConditions.ElementIsVisible(By.CssSelector(@".z-text.z-notification__content.z-text-detail-micro.z-text-black")));
+                      
          var a = driver.FindElement(By.CssSelector(@".z-text.z-notification__content.z-text-detail-micro.z-text-black")).Text;
          Assert.AreEqual("Vul alsjeblieft een geldig e-mailadres in (bijvoorbeeld voornaam.achternaam@domein.nl).", a);
 
