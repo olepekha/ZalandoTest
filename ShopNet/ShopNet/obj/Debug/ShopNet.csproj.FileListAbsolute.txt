@@ -1,4 +1,7 @@
+C:\Users\Metastorm\Documents\Visual Studio 2013\Projects\ShopNet\ShopNet\ShopNet\obj\Debug\ShopNet.csprojResolveAssemblyReference.cache
 C:\Users\Metastorm\Documents\Visual Studio 2013\Projects\ShopNet\ShopNet\ShopNet\bin\Debug\chromedriver.exe
+C:\Users\Metastorm\Documents\Visual Studio 2013\Projects\ShopNet\ShopNet\ShopNet\bin\Debug\ShopNet.dll
+C:\Users\Metastorm\Documents\Visual Studio 2013\Projects\ShopNet\ShopNet\ShopNet\bin\Debug\ShopNet.pdb
 C:\Users\Metastorm\Documents\Visual Studio 2013\Projects\ShopNet\ShopNet\ShopNet\bin\Debug\Microsoft.Web.XmlTransform.dll
 C:\Users\Metastorm\Documents\Visual Studio 2013\Projects\ShopNet\ShopNet\ShopNet\bin\Debug\NuGet.Core.dll
 C:\Users\Metastorm\Documents\Visual Studio 2013\Projects\ShopNet\ShopNet\ShopNet\bin\Debug\nunit.framework.dll
@@ -11,6 +14,3 @@ C:\Users\Metastorm\Documents\Visual Studio 2013\Projects\ShopNet\ShopNet\ShopNet
 C:\Users\Metastorm\Documents\Visual Studio 2013\Projects\ShopNet\ShopNet\ShopNet\bin\Debug\WebDriver.Support.xml
 C:\Users\Metastorm\Documents\Visual Studio 2013\Projects\ShopNet\ShopNet\ShopNet\obj\Debug\ShopNet.dll
 C:\Users\Metastorm\Documents\Visual Studio 2013\Projects\ShopNet\ShopNet\ShopNet\obj\Debug\ShopNet.pdb
-C:\Users\Metastorm\Documents\Visual Studio 2013\Projects\ShopNet\ShopNet\ShopNet\bin\Debug\ShopNet.dll
-C:\Users\Metastorm\Documents\Visual Studio 2013\Projects\ShopNet\ShopNet\ShopNet\bin\Debug\ShopNet.pdb
-C:\Users\Metastorm\Documents\Visual Studio 2013\Projects\ShopNet\ShopNet\ShopNet\obj\Debug\ShopNet.csprojResolveAssemblyReference.cache

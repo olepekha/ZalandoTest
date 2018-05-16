@@ -15,23 +15,11 @@ using OpenQA.Selenium.Interactions;
 namespace ShopNet
 {
     [TestFixture]
-    public class LoginForm_FunctionalTests
+    public class LoginForm_FunctionalTests : TestBase
+
     {
-        IWebDriver driver;
-        WebDriverWait waitf;
-        TimeSpan t = new TimeSpan(0, 0, 10);//for timer set
-
-
-        [SetUp]
-        public void Initialize() //start browser
-        {
-            driver = new ChromeDriver();
-            //driver.Quit();
-            waitf = new WebDriverWait(driver, t);
-
-
-        }
-
+        
+          
         [Test]
         public void CreateUserAndLogin() //user should be created
         {
@@ -176,11 +164,6 @@ namespace ShopNet
 
         }
 
-    [TearDown]
-        public void CloseBrowser() //
-        {
-
-                      driver.Quit();
-        }
+   
     }
 }

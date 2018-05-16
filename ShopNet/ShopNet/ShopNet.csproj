@@ -76,6 +76,7 @@
     <Compile Include="Browsers.cs" />
     <Compile Include="LoginForm_FunctionaTests.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
+    <Compile Include="TestBase.cs" />
   </ItemGroup>
   <ItemGroup>
     <WCFMetadata Include="Service References\" />
