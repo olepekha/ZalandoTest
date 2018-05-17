@@ -15,14 +15,19 @@ using OpenQA.Selenium.Interactions;
 namespace ShopNet
 {
     [TestFixture]
+   
+   
     public class LoginForm_FunctionalTests : TestBase
 
     {
         
           
         [Test]
-        public void CreateUserAndLogin() //user should be created
+        [TestCaseSource(typeof(TestBase),"BrowsersToRunWith")]
+        public void CreateUserAndLogin(String BrowserName) //user should be created
         {
+            Initialize(BrowserName);
+
             //driver = new FirefoxDriver();
             driver.Navigate().GoToUrl("https://www.zalando.nl/login/?view=register");
             driver.FindElement(By.Name("register.firstname")).SendKeys("olga");
@@ -74,8 +79,11 @@ namespace ShopNet
 
        
     [Test]
-        public void SecondLogin() //
+    [TestCaseSource(typeof(TestBase), "BrowsersToRunWith")]
+        public void SecondLogin(String BrowserName) //
         {
+            Initialize(BrowserName);
+
         driver.Navigate().GoToUrl("https://www.zalando.nl/dames-home/");
         driver.FindElement(By.ClassName("z-navicat-header_navToolLabel")).Click();
         waitf.Until(ExpectedConditions.ElementIsVisible(By.Name("login.email")));
@@ -93,15 +101,17 @@ namespace ShopNet
         //  }
 
         [Test]
-     public void loginasinvaliduser() //
-          {
-          driver.Navigate().GoToUrl("https://www.zalando.nl/dames-home/");
-          driver.FindElement(By.ClassName("z-navicat-header_navToolLabel")).Click();
-          waitf.Until(ExpectedConditions.ElementIsVisible(By.Name("login.email")));
-          driver.FindElement(By.Name("login.email")).SendKeys("o.qw@ra"); //o.ya@ro.ru
-          driver.FindElement(By.Name("login.password")).SendKeys("1111111111");
-         driver.FindElement(By.CssSelector(".z-button.z-coast-reef_login_button.z-button--primary.z-button--button")).Click();
-         waitf.Until(ExpectedConditions.ElementIsVisible(By.CssSelector(@".z-text.z-notification__content.z-text-detail-micro.z-text-black")));
+        [TestCaseSource(typeof(TestBase), "BrowsersToRunWith")]
+     public void loginasinvaliduser(String BrowserName) //
+    {
+             Initialize(BrowserName);
+             driver.Navigate().GoToUrl("https://www.zalando.nl/dames-home/");
+             driver.FindElement(By.ClassName("z-navicat-header_navToolLabel")).Click();
+              waitf.Until(ExpectedConditions.ElementIsVisible(By.Name("login.email")));
+            driver.FindElement(By.Name("login.email")).SendKeys("o.qw@ra"); //o.ya@ro.ru
+            driver.FindElement(By.Name("login.password")).SendKeys("1111111111");
+            driver.FindElement(By.CssSelector(".z-button.z-coast-reef_login_button.z-button--primary.z-button--button")).Click();
+             waitf.Until(ExpectedConditions.ElementIsVisible(By.CssSelector(@".z-text.z-notification__content.z-text-detail-micro.z-text-black")));
                       
          var a = driver.FindElement(By.CssSelector(@".z-text.z-notification__content.z-text-detail-micro.z-text-black")).Text;
          Assert.AreEqual("Vul alsjeblieft een geldig e-mailadres in (bijvoorbeeld voornaam.achternaam@domein.nl).", a);
@@ -116,8 +126,10 @@ namespace ShopNet
 
 
         [Test]
-       public void LoginWithIncorrectPsw() //
+        [TestCaseSource(typeof(TestBase), "BrowsersToRunWith")]
+       public void LoginWithIncorrectPsw(String BrowserName) //
          {
+             Initialize(BrowserName);
              driver.Navigate().GoToUrl("https://www.zalando.nl/dames-home/");
              driver.FindElement(By.ClassName("z-navicat-header_navToolLabel")).Click();
              waitf.Until(ExpectedConditions.ElementIsVisible(By.Name("login.email")));
@@ -135,8 +147,10 @@ namespace ShopNet
         }
 
         [Test]
-          public void LoginWithNullUser() //
-          {
+        [TestCaseSource(typeof(TestBase), "BrowsersToRunWith")]
+          public void LoginWithNullUser(String BrowserName) //
+        {
+            Initialize(BrowserName);
              driver.Navigate().GoToUrl("https://www.zalando.nl/dames-home/");
           driver.FindElement(By.ClassName("z-navicat-header_navToolLabel")).Click();
           driver.FindElement(By.Name("login.email")).SendKeys(""); //o.ya@ro.ru
@@ -149,8 +163,10 @@ namespace ShopNet
          }
 
         [Test]
-        public void LoginWithNullPsw() //
+        [TestCaseSource(typeof(TestBase), "BrowsersToRunWith")]
+        public void LoginWithNullPsw(String BrowserName) //
         {
+            Initialize(BrowserName);
             driver.Navigate().GoToUrl("https://www.zalando.nl/dames-home/");
             driver.FindElement(By.ClassName("z-navicat-header_navToolLabel")).Click();
             driver.FindElement(By.Name("login.email")).SendKeys("o.qw@rambler.ru"); //o.ya@ro.ru

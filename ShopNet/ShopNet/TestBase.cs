@@ -23,15 +23,18 @@ namespace ShopNet
         TimeSpan t = new TimeSpan(0, 0, 10);//for timer set
 
 
-        [SetUp]
-        public void Initialize() //start browser
+        
+        public void Initialize(String BrowserName) //lunch browser
         {
-            driver = new ChromeDriver();
+            if (BrowserName.Equals("firefox"))
+                driver = new FirefoxDriver();
+            else 
+                driver = new ChromeDriver();
 
             driver.Manage().Window.Maximize();
-
             waitf = new WebDriverWait(driver, t);
 
+                       
         }
 
         [TearDown]
@@ -40,7 +43,20 @@ namespace ShopNet
 
             driver.Quit();
         }
+
+        public static IEnumerable<String> BrowsersToRunWith() 
+
+        { 
+        String[] browsers = {"chrome", "firefox"};
+
+        foreach (String b in browsers)
+        {
+            yield return b;
+        }
+        
+        }
     }
 
 
+    
 }

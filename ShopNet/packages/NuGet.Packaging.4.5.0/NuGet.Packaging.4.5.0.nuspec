@@ -1,0 +1,35 @@
+<?xml version="1.0"?>
+<package xmlns="http://schemas.microsoft.com/packaging/2012/06/nuspec.xsd">
+  <metadata>
+    <id>NuGet.Packaging</id>
+    <version>4.5.0</version>
+    <authors>NuGet</authors>
+    <owners>NuGet</owners>
+    <licenseUrl>https://raw.githubusercontent.com/NuGet/NuGet.Client/dev/LICENSE.txt</licenseUrl>
+    <requireLicenseAcceptance>false</requireLicenseAcceptance>
+    <description>NuGet's implementation for reading nupkg package and nuspec package specification files.</description>
+    <copyright>Microsoft Corporation. All rights reserved.</copyright>
+    <tags>nuget</tags>
+    <dependencies>
+      <group targetFramework=".NETFramework4.5">
+        <dependency id="NuGet.Common" version="4.5.0" />
+        <dependency id="NuGet.Packaging.Core" version="4.5.0" />
+        <dependency id="Newtonsoft.Json" version="9.0.1" />
+      </group>
+      <group targetFramework="Unsupported0.0">
+        <dependency id="NuGet.Common" version="4.5.0" />
+        <dependency id="NuGet.Packaging.Core" version="4.5.0" />
+        <dependency id="NETStandard.Library" version="1.6.0" />
+        <dependency id="System.IO.Compression" version="4.1.0" />
+        <dependency id="Newtonsoft.Json" version="9.0.1" />
+        <dependency id="System.ObjectModel" version="4.0.12" />
+        <dependency id="System.Dynamic.Runtime" version="4.0.11" />
+      </group>
+    </dependencies>
+    <frameworkAssemblies>
+      <frameworkAssembly assemblyName="System.IO.Compression" targetFramework=".NETFramework4.5" />
+      <frameworkAssembly assemblyName="System.Xml" targetFramework=".NETFramework4.5" />
+      <frameworkAssembly assemblyName="System.Xml.Linq" targetFramework=".NETFramework4.5" />
+    </frameworkAssemblies>
+  </metadata>
+</package>
