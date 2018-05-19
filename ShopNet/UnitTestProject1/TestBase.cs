@@ -1,10 +1,17 @@
-﻿using NUnit.Framework;
-using OpenQA.Selenium;
-using OpenQA.Selenium.Chrome;
-using OpenQA.Selenium.Firefox;
-using OpenQA.Selenium.Support.UI;
-using System;
+﻿using System;
 using System.Collections.Generic;
+using System.Linq;
+using System.Text;
+using System.Threading.Tasks;
+using OpenQA.Selenium.Firefox;
+using OpenQA.Selenium.Chrome;
+using OpenQA.Selenium;
+using OpenQA.Selenium.Support.UI;
+//using NUnit.Framework;
+using System.Diagnostics;
+using System.Threading;
+using OpenQA.Selenium.Interactions;
+using Microsoft.VisualStudio.TestTools.UnitTesting;
 
 namespace ShopNet
 {
@@ -31,7 +38,7 @@ namespace ShopNet
                        
         }
 
-        [TearDown]
+        [TestCleanup]
         public void CloseBrowser() //
         {
 

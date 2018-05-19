@@ -7,20 +7,23 @@ using OpenQA.Selenium.Firefox;
 using OpenQA.Selenium.Chrome;
 using OpenQA.Selenium;
 using OpenQA.Selenium.Support.UI;
-using NUnit.Framework;
+//using NUnit.Framework;
 using System.Diagnostics;
 using System.Threading;
 using OpenQA.Selenium.Interactions;
+using Microsoft.VisualStudio.TestTools.UnitTesting;
 
 
 namespace ShopNet
 {
-    [TestFixture]
+    [TestClass]
     public class LoginForm_FunctionalTests : TestBase
 
     {
-        [Test]
-        [TestCaseSource(typeof(TestBase),"BrowsersToRunWith")]
+        
+          
+        [TestMethod]
+        //[TestCaseSource(typeof(TestBase),"BrowsersToRunWith")]
         public void CreateUserAndLogin(String BrowserName) //user should be created
         {
             Initialize(BrowserName);
@@ -75,8 +78,9 @@ namespace ShopNet
         }
 
        
-        [Test]
-        [TestCaseSource(typeof(TestBase), "BrowsersToRunWith")]
+    //[Test]
+    //[TestCaseSource(typeof(TestBase), "BrowsersToRunWith")]
+    [TestMethod]
         public void SecondLogin(String BrowserName) //
         {
             Initialize(BrowserName);
@@ -97,9 +101,10 @@ namespace ShopNet
 
         //  }
 
-        [Test]
-        [TestCaseSource(typeof(TestBase), "BrowsersToRunWith")]
-         public void loginasinvaliduser(String BrowserName) 
+        //[Test]
+        //[TestCaseSource(typeof(TestBase), "BrowsersToRunWith")]
+        [TestMethod]
+     public void loginasinvaliduser(String BrowserName) 
     {
            Initialize(BrowserName);
            driver.Navigate().GoToUrl("https://www.zalando.nl/dames-home/");
@@ -123,9 +128,9 @@ namespace ShopNet
           }
 
 
-        [Test]
-        [TestCaseSource(typeof(TestBase), "BrowsersToRunWith")]
-        public void LoginWithIncorrectPsw(String BrowserName) //
+        //[Test]
+        //[TestCaseSource(typeof(TestBase), "BrowsersToRunWith")]
+       public void LoginWithIncorrectPsw(String BrowserName) //
          {
              Initialize(BrowserName);
              driver.Navigate().GoToUrl("https://www.zalando.nl/dames-home/");
@@ -144,9 +149,9 @@ namespace ShopNet
 
         }
 
-        [Test]
-        [TestCaseSource(typeof(TestBase), "BrowsersToRunWith")]
-        public void LoginWithNullUser(String BrowserName) //
+       // [Test]
+        //[TestCaseSource(typeof(TestBase), "BrowsersToRunWith")]
+          public void LoginWithNullUser(String BrowserName) //
         {
             Initialize(BrowserName);
              driver.Navigate().GoToUrl("https://www.zalando.nl/dames-home/");
@@ -160,8 +165,8 @@ namespace ShopNet
          Assert.AreEqual("Vul alsjeblieft een geldig e-mailadres in (bijvoorbeeld voornaam.achternaam@domein.nl).", a);
          }
 
-        [Test]
-        [TestCaseSource(typeof(TestBase), "BrowsersToRunWith")]
+        //[Test]
+        //[TestCaseSource(typeof(TestBase), "BrowsersToRunWith")]
         public void LoginWithNullPsw(String BrowserName) //
         {
             Initialize(BrowserName);
@@ -178,8 +183,8 @@ namespace ShopNet
 
         }
 
-        [Test]
-        [TestCaseSource(typeof(TestBase), "BrowsersToRunWith")]
+       // [Test]
+       // [TestCaseSource(typeof(TestBase), "BrowsersToRunWith")]
         public void LoginWithNullUserAndPsw(String BrowserName) //
         {
             Initialize(BrowserName);
