@@ -11,6 +11,7 @@ using NUnit.Framework;
 using System.Diagnostics;
 using System.Threading;
 using OpenQA.Selenium.Interactions;
+using log4net;
 
 
 namespace ShopNet
@@ -18,12 +19,16 @@ namespace ShopNet
     [TestFixture]
     public class LoginForm_FunctionalTests : TestBase
 
+
+
     {
         [Test]
+        
         [TestCaseSource(typeof(TestBase),"BrowsersToRunWith")]
         public void CreateUserAndLogin(String BrowserName) //user should be created
         {
             Initialize(BrowserName);
+
 
             //driver = new FirefoxDriver();
             driver.Navigate().GoToUrl("https://www.zalando.nl/login/?view=register");
@@ -54,7 +59,7 @@ namespace ShopNet
              logout.Click();
              waitf.Until(SeleniumExtras.WaitHelpers.ExpectedConditions.UrlContains("https://www.zalando.nl/dames-home/"));
              Assert.AreEqual(@"https://www.zalando.nl/dames-home/", driver.Url);
-
+            
         }
 
         [Test]

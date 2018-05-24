@@ -43,6 +43,15 @@
     <WarningLevel>4</WarningLevel>
   </PropertyGroup>
   <ItemGroup>
+    <Reference Include="Common.Log, Version=1.0.0.0, Culture=neutral, PublicKeyToken=9720bde59dbab768, processorArchitecture=MSIL">
+      <HintPath>..\packages\Common.Log.1.0.0.0\lib\net45\Common.Log.dll</HintPath>
+    </Reference>
+    <Reference Include="Common.Log.log4net, Version=1.0.0.0, Culture=neutral, PublicKeyToken=9720bde59dbab768, processorArchitecture=MSIL">
+      <HintPath>..\packages\Common.Log.log4net.1.0.0.0\lib\net45\Common.Log.log4net.dll</HintPath>
+    </Reference>
+    <Reference Include="log4net, Version=2.0.8.0, Culture=neutral, PublicKeyToken=669e0ddf0bb1aa2a, processorArchitecture=MSIL">
+      <HintPath>..\packages\log4net.2.0.8\lib\net45-full\log4net.dll</HintPath>
+    </Reference>
     <Reference Include="Microsoft.CSharp" />
     <Reference Include="nunit.framework, Version=3.10.1.0, Culture=neutral, PublicKeyToken=2638cd05610744eb, processorArchitecture=MSIL">
       <HintPath>..\packages\NUnit.3.10.1\lib\net45\nunit.framework.dll</HintPath>
@@ -89,6 +98,9 @@
   </ItemGroup>
   <ItemGroup>
     <None Include="app.config" />
+    <None Include="log4net.config">
+      <CopyToOutputDirectory>Always</CopyToOutputDirectory>
+    </None>
     <None Include="packages.config">
       <SubType>Designer</SubType>
     </None>
