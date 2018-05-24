@@ -7,7 +7,7 @@ using OpenQA.Selenium.Support.UI;
 using System;
 using System.Collections.Generic;
 using log4net.Core;
-
+using log4net;
 
 namespace ShopNet
 {
@@ -19,14 +19,18 @@ namespace ShopNet
 
         TimeSpan t = new TimeSpan(0, 0, 10);//for timer set
 
-
-        //Хочу сконфигурировать Log4Net
-        // XmlConfigurator.Configure();
-        //Creating a logger
-        //ILogs logger = LoggerManager.GetLogger("TestLogs");
+        ILog logger ;
+        public TestBase()
+        {
+            //Хочу сконфигурировать Log4Net
+             XmlConfigurator.Configure();
+            //Creating a logger
+            logger = log4net.LogManager.GetLogger(typeof(TestBase));
+        }
         
         public void Initialize(String BrowserName) //lunch browser
         {
+            logger.Info("Init method has been called");
             if (BrowserName.Equals("firefox"))
                 driver = new FirefoxDriver();
             else 
