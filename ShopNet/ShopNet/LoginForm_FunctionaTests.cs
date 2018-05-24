@@ -29,6 +29,7 @@ namespace ShopNet
         {
             Initialize(BrowserName);
 
+            
 
             //driver = new FirefoxDriver();
             driver.Navigate().GoToUrl("https://www.zalando.nl/login/?view=register");
@@ -48,7 +49,7 @@ namespace ShopNet
             checkBtn_Letter.Click();
             driver.FindElement(By.CssSelector(".z-button.z-button--primary.z-button--button")).Click();
              waitf.Until(SeleniumExtras.WaitHelpers.ExpectedConditions.UrlContains("mijnaccount"));
-                                                                                                             //driver.Manage().Timeouts().PageLoad = new TimeSpan(0,0,20);
+                                                                                                           //driver.Manage().Timeouts().PageLoad = new TimeSpan(0,0,20);
              Assert.AreEqual( @"https://www.zalando.nl/mijnaccount/", driver.Url);
             var myAccountElement = driver.FindElement(By.CssSelector("#fieldAccountAccountBox")); // var myAccountElement = driver.FindElement(By.ClassName("z-navicat-header_navToolLabel"));
              Actions action = new Actions(driver); // подключить OpenQA.Selenium.Interactions, action дает возможность работать с мышкой
