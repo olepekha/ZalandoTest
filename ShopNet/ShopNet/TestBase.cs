@@ -19,16 +19,9 @@ namespace ShopNet
 
         TimeSpan t = new TimeSpan(0, 0, 10);//for timer set
 
-<<<<<<< HEAD
-        private static readonly log4net.ILog log = log4net.LogManager.GetLogger(System.Reflection.MethodBase.GetCurrentMethod().DeclaringType);
-        
-        //Хочу сконфигурировать Log4Net
-        //XmlConfigurator.Configure();
-        //Creating a logger
-        //ILogs logger = LoggerManager.GetLogger("TestLogs");
+    
 
-=======
-        ILog logger ;
+       public ILog logger ;
         public TestBase()
         {
             //Хочу сконфигурировать Log4Net
@@ -37,8 +30,7 @@ namespace ShopNet
             logger = log4net.LogManager.GetLogger(typeof(TestBase));
         }
         
->>>>>>> 5985ab4059ab93b832ce04c7245d6224ade57bb0
-        public void Initialize(String BrowserName) //lunch browser
+        public void Initialize(String BrowserName) 
         {
             logger.Info("Init method has been called");
             if (BrowserName.Equals("firefox"))
