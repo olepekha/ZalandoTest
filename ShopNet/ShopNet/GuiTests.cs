@@ -48,25 +48,39 @@ namespace ShopNet
 
 
                 //find "Maat" element
-                driver.FindElement(By.CssSelector(@"z-grid-item.cat_filter-yI6Mr:nth-child(1)>div:nth-child(1)>div:nth-child(1)>div:nth-child(1)")).Click();
+                IWebElement dropdown_Maat = driver.FindElement(By.CssSelector(@"z-grid-item.cat_filter-yI6Mr:nth-child(1)>div:nth-child(1)>div:nth-child(1)>div:nth-child(1)"));
+                dropdown_Maat.Click();
+                IList<IWebElement> dropdown_Maat_child = dropdown_Maat.FindElements(By.ClassName("cat_checkbox-w9QmM"));
+                int Size = dropdown_Maat_child.Count;
+                for (int i = 0; i < Size; i++)
+                {
+                    dropdown_Maat_child.ElementAt(i).Click();
+                }
 
-               IList<IWebElement> chkBx_Maat = driver.FindElements(By.ClassName("cat_checkbox-w9QmM"));
-                Boolean bValue = false;
-
-                bValue = chkBx_Maat.ElementAt(0).Selected;
+                //waitf.Until(SeleniumExtras.WaitHelpers.ExpectedConditions.ElementIsVisible(By.CssSelector(@"z-grid-item.cat_filter-yI6Mr:nth-child(1)>div:nth-child(1)>div:nth-child(1)>div:nth-child(1)")));
 
 
+                //IWebElement chkBx_Maat_parent = driver.FindElement(By.ClassName("cat_itemList-sgr85"));
+                //IWebElement chkBx_Maat_child = chkBx_Maat_parent.FindElement(By.ClassName("content"));
+                // IList <IWebElement> ListElmLi = driver.FindElements(By.TagName("li"));
+
+                //Boolean bValue = false;
+
+                //bValue = chkBx_Maat.ElementAt(0).Selected;
+
+                // SelectElement sMaat = new SelectElement(dropdown_Maat_child) ;
+                //waitf.Until(SeleniumExtras.WaitHelpers.ExpectedConditions.ElementIsVisible(By.CssSelector(@"z-grid-item.cat_filter-yI6Mr:nth-child(1)>div:nth-child(1)>div:nth-child(1)>div:nth-child(1)")));
+                //  sMaat.SelectByText("23");
 
 
+                // driver.FindElement(By.CssSelector(@"a.z-navicat-header_gender:nth-child(2)>span:nth-child(1)")).Click();
+                //Assert.AreEqual(@"https://www.zalando.nl/heren-home/", driver.Url);
+                // waitf.Until(SeleniumExtras.WaitHelpers.ExpectedConditions.ElementIsVisible(By.CssSelector(@"span.\30 _bb")));
 
-                driver.FindElement(By.CssSelector(@"a.z-navicat-header_gender:nth-child(2)>span:nth-child(1)")).Click();
-                Assert.AreEqual(@"https://www.zalando.nl/heren-home/", driver.Url);
-                waitf.Until(SeleniumExtras.WaitHelpers.ExpectedConditions.ElementIsVisible(By.CssSelector(@"span.\30 _bb")));
+                //  driver.FindElement(By.CssSelector(@"span.\30 _bb")).Click();
+                //  Assert.AreEqual(@"https://www.zalando.nl/heren-home/#", driver.Url);
 
-                driver.FindElement(By.CssSelector(@"span.\30 _bb")).Click();
-                Assert.AreEqual(@"https://www.zalando.nl/heren-home/#", driver.Url);
 
-               
 
                 //driver.FindElement(By.CssSelector(@"a.z-navicat-header_gender:nth-child(3) > span:nth-child(1)")).Click();
                 // Assert.AreEqual(@"https://www.zalando.nl/kinderen-home/", driver.Url);
