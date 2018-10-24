@@ -27,3 +27,4 @@ C:\Users\Metastorm\Documents\Visual Studio 2013\Projects\ShopNet\ShopNet\ShopNet
 C:\Users\Metastorm\Documents\Visual Studio 2013\Projects\ShopNet\ShopNet\ShopNet\bin\Debug\Common.Log.dll
 C:\Users\Metastorm\Documents\Visual Studio 2013\Projects\ShopNet\ShopNet\ShopNet\bin\Debug\Common.Log.log4net.dll
 C:\Users\Metastorm\Documents\Visual Studio 2013\Projects\ShopNet\ShopNet\ShopNet\bin\Debug\log4net.config
+C:\Users\Metastorm\Documents\Visual Studio 2013\Projects\ShopNet\ShopNet\ShopNet\bin\Debug\TechTalk.SpecFlow.dll

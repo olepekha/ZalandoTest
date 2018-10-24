@@ -35,42 +35,48 @@ namespace ShopNet
                 driver.FindElement(By.CssSelector(@".z-navicat-header_gender.z-navicat-header_gender-active")).Click(); 
                 Assert.AreEqual(@"https://www.zalando.nl/dames-home/", driver.Url);
 
-                //find "Inspiratie" element span.\30 _bb
-                waitf.Until(SeleniumExtras.WaitHelpers.ExpectedConditions.ElementIsVisible(By.CssSelector(@"span.\30 _bb")));
+                ////find "Inspiratie" element span.\30 _bb
+                //waitf.Until(SeleniumExtras.WaitHelpers.ExpectedConditions.ElementIsVisible(By.CssSelector(@"span.\30 _bb")));
 
-                driver.FindElement(By.CssSelector(@"span.\30 _bb")).Click();
-                Assert.AreEqual(@"https://www.zalando.nl/dames-home/#", driver.Url);
+                //driver.FindElement(By.CssSelector(@"span.\30 _bb")).Click();
+                //Assert.AreEqual(@"https://www.zalando.nl/dames-home/#", driver.Url);
 
-                waitf.Until(SeleniumExtras.WaitHelpers.ExpectedConditions.ElementIsVisible(By.CssSelector(@"span.\31 _bb")));
+                //waitf.Until(SeleniumExtras.WaitHelpers.ExpectedConditions.ElementIsVisible(By.CssSelector(@"span.\31 _bb")));
 
                 driver.FindElement(By.CssSelector(@"span.\31 _bb")).Click();
                 Assert.AreEqual(@"https://www.zalando.nl/dameskleding/", driver.Url);
 
 
-                //find "Maat" element
-                IWebElement dropdown_Maat = driver.FindElement(By.CssSelector(@"z-grid-item.cat_filter-yI6Mr:nth-child(1)>div:nth-child(1)>div:nth-child(1)>div:nth-child(1)"));
-                dropdown_Maat.Click();
-                IList<IWebElement> dropdown_Maat_child = dropdown_Maat.FindElements(By.ClassName("cat_checkbox-w9QmM"));
-                int Size = dropdown_Maat_child.Count;
+
+
+
+                waitf.Until(SeleniumExtras.WaitHelpers.ExpectedConditions.ElementIsVisible(By.ClassName("cat_filterHead-3-7Lz")));
+
+                var ulElement = driver.FindElement(By.ClassName("cat_filterHead-3-7Lz"));
+                ulElement.Click();
+                waitf.Until(SeleniumExtras.WaitHelpers.ExpectedConditions.ElementIsVisible(By.ClassName("cat_itemList-sgr85")));
+                var listElement = driver.FindElement(By.ClassName("cat_itemList-sgr85"));
+                var liElements = listElement.FindElements(By.ClassName("cat_checkboxOption-w9fJZ"));
+                int Size = liElements.Count;
                 for (int i = 0; i < Size; i++)
                 {
-                    dropdown_Maat_child.ElementAt(i).Click();
+                    liElements.ElementAt(i).Click();
                 }
+                var firstLI = liElements.ToList().FirstOrDefault();
+                //liElements.ToList().ForEach(q=>q.Click());//.FirstOrDefault();
 
-                //waitf.Until(SeleniumExtras.WaitHelpers.ExpectedConditions.ElementIsVisible(By.CssSelector(@"z-grid-item.cat_filter-yI6Mr:nth-child(1)>div:nth-child(1)>div:nth-child(1)>div:nth-child(1)")));
+                if (firstLI != null)
+                firstLI.Click();
+                var a= driver.FindElement(By.ClassName("cat_saveButton-1KxIT"));
+                a.Click();
+                waitf.Until(SeleniumExtras.WaitHelpers.ExpectedConditions.UrlContains(@"__maat-23/"));
+                Assert.AreEqual(@"https://www.zalando.nl/dameskleding/__maat-23/", driver.Url);
 
 
-                //IWebElement chkBx_Maat_parent = driver.FindElement(By.ClassName("cat_itemList-sgr85"));
-                //IWebElement chkBx_Maat_child = chkBx_Maat_parent.FindElement(By.ClassName("content"));
-                // IList <IWebElement> ListElmLi = driver.FindElements(By.TagName("li"));
 
-                //Boolean bValue = false;
 
-                //bValue = chkBx_Maat.ElementAt(0).Selected;
 
-                // SelectElement sMaat = new SelectElement(dropdown_Maat_child) ;
-                //waitf.Until(SeleniumExtras.WaitHelpers.ExpectedConditions.ElementIsVisible(By.CssSelector(@"z-grid-item.cat_filter-yI6Mr:nth-child(1)>div:nth-child(1)>div:nth-child(1)>div:nth-child(1)")));
-                //  sMaat.SelectByText("23");
+
 
 
                 // driver.FindElement(By.CssSelector(@"a.z-navicat-header_gender:nth-child(2)>span:nth-child(1)")).Click();
