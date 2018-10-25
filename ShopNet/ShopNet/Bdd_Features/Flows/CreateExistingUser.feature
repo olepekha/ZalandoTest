@@ -3,8 +3,9 @@
 
 @mytag
 Scenario: Create New Existing user
-	Given I AM at home page
-	And I navigate to register new user page
-	When I enter valid credentials for already existing user
-	Then I get error message and do not login 
+	Given I Am on the home page 
+	And I navigate to register new user page  
+	When I enter valid credentials for already existing user  
+	Then I get error message and do not login  
+	
 	

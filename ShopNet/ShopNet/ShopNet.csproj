@@ -96,23 +96,21 @@
     <Otherwise />
   </Choose>
   <ItemGroup>
-    <Compile Include="..\..\..\QAToolsTest\QAToolsTest\Bdd\CreateExistingUserSteps.cs">
-      <Link>Bdd_Bindings\CreateExistingUserSteps.cs</Link>
-    </Compile>
     <Compile Include="Bdd_Bindings\DataDrivenLogin_FuncTest.cs" />
+    <Compile Include="Bdd_Bindings\ErrorMessageShouldAppearsWhenITryToCreateNewUserThatAlreadyExistInTheSystemSteps.cs" />
     <Compile Include="Bdd_Bindings\LogInAndLogOutForNewUserSteps.cs" />
-    <Compile Include="Bdd_Features\Flows\LoginLogout.feature.cs">
+    <Compile Include="Bdd_Features\Flows\LogInLogOutForNewUser.feature.cs">
       <AutoGen>True</AutoGen>
       <DesignTime>True</DesignTime>
-      <DependentUpon>LoginLogout.feature</DependentUpon>
+      <DependentUpon>LogInLogOutForNewUser.feature</DependentUpon>
     </Compile>
     <Compile Include="GuiTests.cs" />
     <Compile Include="LoginForm_FunctionaTests.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
-    <Compile Include="Bdd_Features\Flows\SpecFlowFeature1.feature.cs">
+    <Compile Include="Bdd_Features\Flows\CreateExistingUser.feature.cs">
       <AutoGen>True</AutoGen>
       <DesignTime>True</DesignTime>
-      <DependentUpon>SpecFlowFeature1.feature</DependentUpon>
+      <DependentUpon>CreateExistingUser.feature</DependentUpon>
     </Compile>
     <Compile Include="TestBase.cs" />
   </ItemGroup>
@@ -121,9 +119,9 @@
   </ItemGroup>
   <ItemGroup>
     <None Include="app.config" />
-    <None Include="Bdd_Features\Flows\LoginLogout.feature">
+    <None Include="Bdd_Features\Flows\LogInLogOutForNewUser.feature">
       <Generator>SpecFlowSingleFileGenerator</Generator>
-      <LastGenOutput>LoginLogout.feature.cs</LastGenOutput>
+      <LastGenOutput>LogInLogOutForNewUser.feature.cs</LastGenOutput>
     </None>
     <None Include="log4net.config">
       <CopyToOutputDirectory>Always</CopyToOutputDirectory>
@@ -131,9 +129,9 @@
     <None Include="packages.config">
       <SubType>Designer</SubType>
     </None>
-    <None Include="Bdd_Features\Flows\SpecFlowFeature1.feature">
+    <None Include="Bdd_Features\Flows\CreateExistingUser.feature">
       <Generator>SpecFlowSingleFileGenerator</Generator>
-      <LastGenOutput>SpecFlowFeature1.feature.cs</LastGenOutput>
+      <LastGenOutput>CreateExistingUser.feature.cs</LastGenOutput>
     </None>
   </ItemGroup>
   <ItemGroup>
