@@ -113,7 +113,7 @@ namespace ShopNet
 
         [Test]
         [TestCaseSource(typeof(TestBase), "BrowsersToRunWith")]
-        public void CreateExistingUser(String BrowserName) //user should be created
+        public void CreateExistingUser(String BrowserName) //user should exists
         {
             try
             {
