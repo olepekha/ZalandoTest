@@ -24,20 +24,23 @@ namespace ShopNet
        public ILog logger ;
         public TestBase()
         {
-            //Хочу сконфигурировать Log4Net
+            //Log4Net configuration
              XmlConfigurator.Configure();
             //Creating a logger
             logger = log4net.LogManager.GetLogger(typeof(TestBase));
         }
-        
+
         public void Initialize(String BrowserName) 
         {
             logger.Info("Init method has been called");
             if (BrowserName.Equals("firefox"))
+            {
                 driver = new FirefoxDriver();
+            }
             else 
                 driver = new ChromeDriver();
 
+            driver.Manage().Timeouts().ImplicitWait = TimeSpan.FromSeconds(60);
             driver.Manage().Window.Maximize();
             waitf = new WebDriverWait(driver, t);
 
@@ -47,7 +50,7 @@ namespace ShopNet
    
 
         [TearDown]
-        public void CloseBrowser() //
+        public void CloseBrowser() 
         {
 
             driver.Quit();

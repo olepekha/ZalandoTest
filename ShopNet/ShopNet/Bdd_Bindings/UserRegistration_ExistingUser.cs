@@ -32,7 +32,7 @@ namespace ShopNet
         
         public void GivenUserIsAtTheRegistrationPage()
         {
-            driver = new FirefoxDriver();
+            driver = new ChromeDriver();
             driver.Navigate().GoToUrl("https://www.zalando.nl/login/?view=register");
         }
 

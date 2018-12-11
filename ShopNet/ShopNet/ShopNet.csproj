@@ -1,5 +1,9 @@
 ﻿<?xml version="1.0" encoding="utf-8"?>
 <Project ToolsVersion="12.0" DefaultTargets="Build" xmlns="http://schemas.microsoft.com/developer/msbuild/2003">
+  <Import Project="..\packages\xunit.runner.visualstudio.2.4.1\build\net20\xunit.runner.visualstudio.props" Condition="Exists('..\packages\xunit.runner.visualstudio.2.4.1\build\net20\xunit.runner.visualstudio.props')" />
+  <Import Project="..\packages\xunit.runner.console.2.4.1\build\xunit.runner.console.props" Condition="Exists('..\packages\xunit.runner.console.2.4.1\build\xunit.runner.console.props')" />
+  <Import Project="..\packages\Microsoft.NET.Test.Sdk.15.9.0\build\net45\Microsoft.Net.Test.Sdk.props" Condition="Exists('..\packages\Microsoft.NET.Test.Sdk.15.9.0\build\net45\Microsoft.Net.Test.Sdk.props')" />
+  <Import Project="..\packages\Microsoft.CodeCoverage.15.9.0\build\netstandard1.0\Microsoft.CodeCoverage.props" Condition="Exists('..\packages\Microsoft.CodeCoverage.15.9.0\build\netstandard1.0\Microsoft.CodeCoverage.props')" />
   <Import Project="..\packages\NUnit3TestAdapter.3.10.0\build\net35\NUnit3TestAdapter.props" Condition="Exists('..\packages\NUnit3TestAdapter.3.10.0\build\net35\NUnit3TestAdapter.props')" />
   <Import Project="..\packages\NUnit.3.10.1\build\NUnit.props" Condition="Exists('..\packages\NUnit.3.10.1\build\NUnit.props')" />
   <PropertyGroup>
@@ -56,6 +60,9 @@
       <HintPath>..\packages\log4net.2.0.8\lib\net45-full\log4net.dll</HintPath>
     </Reference>
     <Reference Include="Microsoft.CSharp" />
+    <Reference Include="Microsoft.VisualStudio.CodeCoverage.Shim, Version=15.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a, processorArchitecture=MSIL">
+      <HintPath>..\packages\Microsoft.CodeCoverage.15.9.0\lib\net45\Microsoft.VisualStudio.CodeCoverage.Shim.dll</HintPath>
+    </Reference>
     <Reference Include="nunit.framework, Version=3.10.1.0, Culture=neutral, PublicKeyToken=2638cd05610744eb, processorArchitecture=MSIL">
       <HintPath>..\packages\NUnit.3.10.1\lib\net45\nunit.framework.dll</HintPath>
     </Reference>
@@ -76,11 +83,6 @@
     <Reference Include="System.ComponentModel.Composition" />
     <Reference Include="System.Drawing" />
     <Reference Include="System.Security" />
-    <Reference Include="System.ValueTuple, Version=4.0.1.0, Culture=neutral, PublicKeyToken=cc7b13ffcd2ddd51, processorArchitecture=MSIL">
-      <HintPath>..\packages\System.ValueTuple.4.3.0\lib\netstandard1.0\System.ValueTuple.dll</HintPath>
-      <Private>True</Private>
-      <EmbedInteropTypes>True</EmbedInteropTypes>
-    </Reference>
     <Reference Include="System.Xml" />
     <Reference Include="System.Xml.Linq" />
     <Reference Include="TechTalk.SpecFlow, Version=2.4.0.0, Culture=neutral, PublicKeyToken=0778194805d6db41, processorArchitecture=MSIL">
@@ -103,20 +105,29 @@
   </Choose>
   <ItemGroup>
     <Compile Include="Bdd_Bindings\DataDrivenLogin_FuncTest.cs" />
-    <Compile Include="Bdd_Bindings\LogInAndLogOutForNewUserSteps.cs" />
-    <Compile Include="Bdd_Features\Flows\LogInLogOutForNewUser.feature.cs">
+    <Compile Include="Bdd_Bindings\UserRegistration_ExistingUser.cs" />
+    <Compile Include="Bdd_Bindings\LogInSteps.cs" />
+    <Compile Include="Bdd_Features\LogOut.feature.cs">
       <AutoGen>True</AutoGen>
       <DesignTime>True</DesignTime>
-      <DependentUpon>LogInLogOutForNewUser.feature</DependentUpon>
+      <DependentUpon>LogOut.feature</DependentUpon>
     </Compile>
-    <Compile Include="Bdd_Features\Error Message_UserRegistration_ExistingUser.feature.cs">
+    <Compile Include="Bdd_Features\UserRegistration_ExistingUser.feature.cs">
       <AutoGen>True</AutoGen>
       <DesignTime>True</DesignTime>
-      <DependentUpon>Error Message_UserRegistration_ExistingUser.feature</DependentUpon>
+      <DependentUpon>UserRegistration_ExistingUser.feature</DependentUpon>
     </Compile>
-    <Compile Include="Bdd_Bindings\Error Message_UserRegistration_ExistingUser.cs" />
+    <Compile Include="Bdd_Features\DataDrivenLogin_FuncTest.feature.cs">
+      <AutoGen>True</AutoGen>
+      <DesignTime>True</DesignTime>
+      <DependentUpon>DataDrivenLogin_FuncTest.feature</DependentUpon>
+    </Compile>
     <Compile Include="GuiTests.cs" />
     <Compile Include="LoginForm_FunctionaTests.cs" />
+    <Compile Include="Bdd_Bindings\LogOutSteps.cs" />
+    <Compile Include="obj\Debug\TemporaryGeneratedFile_036C0B5B-1481-4323-8D20-8F5ADCB23D92.cs" />
+    <Compile Include="obj\Debug\TemporaryGeneratedFile_5937a670-0e60-4077-877b-f7221da3dda1.cs" />
+    <Compile Include="obj\Debug\TemporaryGeneratedFile_E7A71F73-0F8D-4B9B-B56E-8E70B10BC5D3.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
     <Compile Include="TestBase.cs" />
   </ItemGroup>
@@ -124,26 +135,37 @@
     <WCFMetadata Include="Service References\" />
   </ItemGroup>
   <ItemGroup>
-    <None Include="app.config" />
-    <None Include="Bdd_Features\Flows\LogInLogOutForNewUser.feature">
+    <None Include="Bdd_Features\DataDrivenLogin_FuncTest.feature">
       <Generator>SpecFlowSingleFileGenerator</Generator>
-      <LastGenOutput>LogInLogOutForNewUser.feature.cs</LastGenOutput>
+      <LastGenOutput>DataDrivenLogin_FuncTest.feature.cs</LastGenOutput>
     </None>
-    <None Include="Bdd_Features\Error Message_UserRegistration_ExistingUser.feature">
+    <None Include="Bdd_Features\LogOut.feature">
       <Generator>SpecFlowSingleFileGenerator</Generator>
-      <LastGenOutput>Error Message_UserRegistration_ExistingUser.feature.cs</LastGenOutput>
+      <LastGenOutput>LogOut.feature.cs</LastGenOutput>
     </None>
-    <None Include="log4net.config">
+    <None Include="Config\app.config" />
+    <None Include="Bdd_Features\UserRegistration_ExistingUser.feature">
+      <Generator>SpecFlowSingleFileGenerator</Generator>
+      <LastGenOutput>UserRegistration_ExistingUser.feature.cs</LastGenOutput>
+    </None>
+    <None Include="Logs\log4net.config">
       <CopyToOutputDirectory>Always</CopyToOutputDirectory>
     </None>
-    <None Include="packages.config">
+    <None Include="Config\packages.config">
       <SubType>Designer</SubType>
     </None>
+    <None Include="obj\Release\ShopNet.csproj.CoreCompileInputs.cache" />
+    <None Include="packages.config" />
   </ItemGroup>
   <ItemGroup>
+    <Content Include="bin\Debug\ShopNet.dll" />
+    <Content Include="bin\Debug\ShopNet.pdb" />
     <Content Include="chromedriver.exe">
       <CopyToOutputDirectory>Always</CopyToOutputDirectory>
     </Content>
+  </ItemGroup>
+  <ItemGroup>
+    <Folder Include="bin\Release\" />
   </ItemGroup>
   <Choose>
     <When Condition="'$(VisualStudioVersion)' == '10.0' And '$(IsCodedUITest)' == 'True'">
@@ -180,6 +202,12 @@
     <Error Condition="!Exists('..\packages\xunit.runner.visualstudio.2.3.1\build\net20\xunit.runner.visualstudio.props')" Text="$([System.String]::Format('$(ErrorText)', '..\packages\xunit.runner.visualstudio.2.3.1\build\net20\xunit.runner.visualstudio.props'))" />
     <Error Condition="!Exists('..\packages\NUnit3TestAdapter.3.10.0\build\net35\NUnit3TestAdapter.props')" Text="$([System.String]::Format('$(ErrorText)', '..\packages\NUnit3TestAdapter.3.10.0\build\net35\NUnit3TestAdapter.props'))" />
     <Error Condition="!Exists('..\packages\SpecFlow.2.4.0\build\SpecFlow.targets')" Text="$([System.String]::Format('$(ErrorText)', '..\packages\SpecFlow.2.4.0\build\SpecFlow.targets'))" />
+    <Error Condition="!Exists('..\packages\Microsoft.CodeCoverage.15.9.0\build\netstandard1.0\Microsoft.CodeCoverage.props')" Text="$([System.String]::Format('$(ErrorText)', '..\packages\Microsoft.CodeCoverage.15.9.0\build\netstandard1.0\Microsoft.CodeCoverage.props'))" />
+    <Error Condition="!Exists('..\packages\Microsoft.CodeCoverage.15.9.0\build\netstandard1.0\Microsoft.CodeCoverage.targets')" Text="$([System.String]::Format('$(ErrorText)', '..\packages\Microsoft.CodeCoverage.15.9.0\build\netstandard1.0\Microsoft.CodeCoverage.targets'))" />
+    <Error Condition="!Exists('..\packages\Microsoft.NET.Test.Sdk.15.9.0\build\net45\Microsoft.Net.Test.Sdk.props')" Text="$([System.String]::Format('$(ErrorText)', '..\packages\Microsoft.NET.Test.Sdk.15.9.0\build\net45\Microsoft.Net.Test.Sdk.props'))" />
+    <Error Condition="!Exists('..\packages\Microsoft.NET.Test.Sdk.15.9.0\build\net45\Microsoft.Net.Test.Sdk.targets')" Text="$([System.String]::Format('$(ErrorText)', '..\packages\Microsoft.NET.Test.Sdk.15.9.0\build\net45\Microsoft.Net.Test.Sdk.targets'))" />
+    <Error Condition="!Exists('..\packages\xunit.runner.console.2.4.1\build\xunit.runner.console.props')" Text="$([System.String]::Format('$(ErrorText)', '..\packages\xunit.runner.console.2.4.1\build\xunit.runner.console.props'))" />
+    <Error Condition="!Exists('..\packages\xunit.runner.visualstudio.2.4.1\build\net20\xunit.runner.visualstudio.props')" Text="$([System.String]::Format('$(ErrorText)', '..\packages\xunit.runner.visualstudio.2.4.1\build\net20\xunit.runner.visualstudio.props'))" />
   </Target>
   <Import Project="..\packages\Selenium.Chrome.WebDriver.2.38\build\Selenium.Chrome.WebDriver.targets" Condition="Exists('..\packages\Selenium.Chrome.WebDriver.2.38\build\Selenium.Chrome.WebDriver.targets')" />
   <Import Project="..\packages\Selenium.WebDriver.ChromeDriver.2.38.0.1\build\Selenium.WebDriver.ChromeDriver.targets" Condition="Exists('..\packages\Selenium.WebDriver.ChromeDriver.2.38.0.1\build\Selenium.WebDriver.ChromeDriver.targets')" />
@@ -187,6 +215,8 @@
   <Import Project="..\packages\NuGet.VisualStudio.4.7.0\build\NuGet.VisualStudio.targets" Condition="Exists('..\packages\NuGet.VisualStudio.4.7.0\build\NuGet.VisualStudio.targets')" />
   <Import Project="..\packages\Microsoft.VisualStudio.SDK.EmbedInteropTypes.15.0.17\build\Microsoft.VisualStudio.SDK.EmbedInteropTypes.targets" Condition="Exists('..\packages\Microsoft.VisualStudio.SDK.EmbedInteropTypes.15.0.17\build\Microsoft.VisualStudio.SDK.EmbedInteropTypes.targets')" />
   <Import Project="..\packages\SpecFlow.2.4.0\build\SpecFlow.targets" Condition="Exists('..\packages\SpecFlow.2.4.0\build\SpecFlow.targets')" />
+  <Import Project="..\packages\Microsoft.CodeCoverage.15.9.0\build\netstandard1.0\Microsoft.CodeCoverage.targets" Condition="Exists('..\packages\Microsoft.CodeCoverage.15.9.0\build\netstandard1.0\Microsoft.CodeCoverage.targets')" />
+  <Import Project="..\packages\Microsoft.NET.Test.Sdk.15.9.0\build\net45\Microsoft.Net.Test.Sdk.targets" Condition="Exists('..\packages\Microsoft.NET.Test.Sdk.15.9.0\build\net45\Microsoft.Net.Test.Sdk.targets')" />
   <!-- To modify your build process, add your task inside one of the targets below and uncomment it. 
        Other similar extension points exist, see Microsoft.Common.targets.
   <Target Name="BeforeBuild">

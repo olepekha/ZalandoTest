@@ -29,8 +29,10 @@ namespace ShopNet
             Initialize(BrowserName);
             try
             {
+                driver.Manage().Timeouts().PageLoad = TimeSpan.FromSeconds(30);
+                //driver.Manage().Timeouts().ImplicitWait = TimeSpan.FromSeconds(120);
                 driver.Navigate().GoToUrl("https://www.zalando.nl/dames-home/");
-                driver.Manage().Timeouts().PageLoad = TimeSpan.FromSeconds(5);
+                //driver.Manage().Timeouts().PageLoad = TimeSpan.FromSeconds(5);
 
                 driver.FindElement(By.CssSelector(@".z-navicat-header_gender.z-navicat-header_gender-active")).Click(); 
                 Assert.AreEqual(@"https://www.zalando.nl/dames-home/", driver.Url);
@@ -40,14 +42,9 @@ namespace ShopNet
 
                 //driver.FindElement(By.CssSelector(@"span.\30 _bb")).Click();
                 //Assert.AreEqual(@"https://www.zalando.nl/dames-home/#", driver.Url);
-
-                //waitf.Until(SeleniumExtras.WaitHelpers.ExpectedConditions.ElementIsVisible(By.CssSelector(@"span.\31 _bb")));
-
+                                
                 driver.FindElement(By.CssSelector(@"span.\31 _bb")).Click();
                 Assert.AreEqual(@"https://www.zalando.nl/dameskleding/", driver.Url);
-
-
-
 
 
                 waitf.Until(SeleniumExtras.WaitHelpers.ExpectedConditions.ElementIsVisible(By.ClassName("cat_filterHead-3-7Lz")));
@@ -72,24 +69,15 @@ namespace ShopNet
                 waitf.Until(SeleniumExtras.WaitHelpers.ExpectedConditions.UrlContains(@"__maat-23/"));
                 Assert.AreEqual(@"https://www.zalando.nl/dameskleding/__maat-23/", driver.Url);
 
+                driver.FindElement(By.CssSelector(@"a.z-navicat-header_gender:nth-child(2)>span:nth-child(1)")).Click();
+                Assert.AreEqual(@"https://www.zalando.nl/heren-home/", driver.Url);
+                waitf.Until(SeleniumExtras.WaitHelpers.ExpectedConditions.ElementIsVisible(By.CssSelector(@"span.\30 _bb")));
 
+                driver.FindElement(By.CssSelector(@"span.\30 _bb")).Click();
+                 Assert.AreEqual(@"https://www.zalando.nl/heren-home/#", driver.Url);
 
-
-
-
-
-
-                // driver.FindElement(By.CssSelector(@"a.z-navicat-header_gender:nth-child(2)>span:nth-child(1)")).Click();
-                //Assert.AreEqual(@"https://www.zalando.nl/heren-home/", driver.Url);
-                // waitf.Until(SeleniumExtras.WaitHelpers.ExpectedConditions.ElementIsVisible(By.CssSelector(@"span.\30 _bb")));
-
-                //  driver.FindElement(By.CssSelector(@"span.\30 _bb")).Click();
-                //  Assert.AreEqual(@"https://www.zalando.nl/heren-home/#", driver.Url);
-
-
-
-                //driver.FindElement(By.CssSelector(@"a.z-navicat-header_gender:nth-child(3) > span:nth-child(1)")).Click();
-                // Assert.AreEqual(@"https://www.zalando.nl/kinderen-home/", driver.Url);
+                driver.FindElement(By.CssSelector(@"a.z-navicat-header_gender:nth-child(3) > span:nth-child(1)")).Click();
+                Assert.AreEqual(@"https://www.zalando.nl/kinderen-home/", driver.Url);
 
 
             }
