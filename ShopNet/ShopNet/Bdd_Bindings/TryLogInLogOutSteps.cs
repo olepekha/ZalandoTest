@@ -18,18 +18,20 @@ using NUnit.Framework.Internal;
 using SpecFlow.Assist.Dynamic;
 using TechTalk.SpecFlow.Assist;
 
-namespace ShopNet
+
+
+namespace ShopNet.Bdd_Bindings
 {
     [Binding]
-    public class LogOutSteps
+    public class TryLogInLogOutSteps
 
     {
         public IWebDriver driver;
         public WebDriverWait waitf;
         TimeSpan t = new TimeSpan(0, 0, 10);//for timer set
 
-        [Given(@"I am at the ""(.*)""")]
-        public void GivenIAmAtThe(string p0)
+        [Given(@"I am at  ""(.*)"" home page")]
+        public void GivenIAmAtHomePage(string p0)
         {
             driver = new ChromeDriver();
             waitf = new WebDriverWait(driver, t);
@@ -37,24 +39,18 @@ namespace ShopNet
             driver.Manage().Window.Maximize();
             driver.Manage().Timeouts().ImplicitWait = TimeSpan.FromSeconds(10);
         }
-
-        [When(@"I click on the inloggen link")]
-        public void WhenIClickOnTheInloggenLink()
+        
+        [Given(@"I click on the Login link")]
+        public void GivenIClickOnTheLoginLink()
         {
             driver.FindElement(By.ClassName(@"z-navicat-header_navToolLabel")).Click();
             driver.Manage().Timeouts().ImplicitWait = TimeSpan.FromSeconds(20);
         }
-
-        [When(@"I go to the inloggen pop up window")]
-        public void WhenIGoToTheInloggenPopUpWindow()
+        
+        [When(@"I enter valid credentials: email and password")]
+        public void WhenIEnterValidCredentialsEmailAndPassword(Table table)
         {
-            Assert.That(driver.FindElement(By.Name("login.email")).Displayed);
-            driver.Manage().Timeouts().ImplicitWait = TimeSpan.FromSeconds(20);
-        }
 
-        [When(@"I enter valid email and password for user")]
-        public void WhenIEnterValidEmailAndPasswordForUser(Table table)
-        {
             IEnumerable<dynamic> credentials = table.CreateDynamicSet();
             foreach (var users in credentials)
             {
@@ -65,24 +61,32 @@ namespace ShopNet
 
             driver.Manage().Timeouts().ImplicitWait = TimeSpan.FromSeconds(10);
         }
-
-        [When(@"I click on Inloggen button")]
-        public void WhenIClickOnInloggenButton()
+        
+        [When(@"I click on Login button")]
+        public void WhenIClickOnLoginButton()
         {
             driver.FindElement(By.CssSelector(".z-button.z-coast-reef_login_button.z-button--primary.z-button--button")).Click();
             driver.Manage().Timeouts().ImplicitWait = TimeSpan.FromSeconds(30);
         }
-
-        [When(@"I go to the ""(.*)"" page")]
-       
-        public void WhenIGoToThePage(string p0)
+        
+        [Then(@"I go to Login pop up window")]
+        public void ThenIGoToLoginPopUpWindow()
+        {
+            Assert.That(driver.FindElement(By.Name("login.email")).Displayed);
+            driver.Manage().Timeouts().ImplicitWait = TimeSpan.FromSeconds(20);
+        }
+        
+        [Then(@"I go to  ""(.*)"" page")]
+        public void ThenIGoToPage(string p0)
         {
             waitf.Until(SeleniumExtras.WaitHelpers.ExpectedConditions.UrlContains("account"));
             Assert.AreEqual("https://www.zalando.nl/myaccount/", p0);
+            
+
         }
-        
-        [When(@"I click on the Niet Olga\? Uitloggen link at mijn account list")]
-        public void WhenIClickOnTheNietOlgaUitloggenLinkAtMijnAccountList()
+
+        [When(@"I cklick on LogOut link")]
+        public void WhenICklickOnLogOutLink()
         {
             var myAccountElement = driver.FindElement(By.Id("fieldAccountAccountBox"));
             Thread.Sleep(1000);
@@ -93,16 +97,15 @@ namespace ShopNet
             waitf.Until(SeleniumExtras.WaitHelpers.ExpectedConditions.ElementIsVisible(By.Id("customerAccountBoxLayer")));
             var logout = driver.FindElement(By.PartialLinkText("Uitloggen"));
             logout.Click();
-
         }
 
-        [Then(@"I should loged out to the ""(.*)""")]
-        public void ThenIShouldLogedOutToThe(string p0)
+        [Then(@"I log out to a ""(.*)"" home page")]
+        public void ThenILogOutToAHomePage(string p0)
         {
             waitf.Until(SeleniumExtras.WaitHelpers.ExpectedConditions.UrlContains("https://www.zalando.nl/"));
             Assert.AreEqual(@"https://www.zalando.nl/dames-home/", driver.Url);
             driver.Quit();
-
         }
+
     }
 }

@@ -35,3 +35,4 @@ C:\Users\Metastorm\Documents\Visual Studio 2013\Projects\ShopNet\ShopNet\ShopNet
 C:\Users\Metastorm\Documents\Visual Studio 2013\Projects\ShopNet\ShopNet\ShopNet\bin\Debug\ShopNet.dll.config
 C:\Users\Metastorm\Documents\Visual Studio 2013\Projects\ShopNet\ShopNet\ShopNet\bin\Debug\ShopNet.dll
 C:\Users\Metastorm\Documents\Visual Studio 2013\Projects\ShopNet\ShopNet\ShopNet\bin\Debug\ShopNet.pdb
+C:\Users\Metastorm\Documents\Visual Studio 2013\Projects\ShopNet\ShopNet\ShopNet\obj\Debug\ShopNet.csprojAssemblyReference.cache

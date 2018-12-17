@@ -22,19 +22,19 @@ using TechTalk.SpecFlow.Assist;
 namespace ShopNet.Bdd_Bindings
 {
     [Binding]
-    public class LogInSteps
+    public class LogInSteps :TestBase
     {
-        public IWebDriver driver;
-        public WebDriverWait waitf;
+        
         TimeSpan t = new TimeSpan(0, 0, 10);//for timer set
 
         [Given(@"I am at the ""(.*)"" home page")]
         public void GivenIAmAtTheHomePage(string p0)
         {
             driver = new ChromeDriver();
+           
             waitf = new WebDriverWait(driver, t);
             driver.Navigate().GoToUrl(p0);
-            driver.Manage().Window.Maximize();
+            //driver.Manage().Window.Maximize();
             driver.Manage().Timeouts().ImplicitWait = TimeSpan.FromSeconds(10);
         }
         

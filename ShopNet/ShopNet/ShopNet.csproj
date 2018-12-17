@@ -105,12 +105,18 @@
   </Choose>
   <ItemGroup>
     <Compile Include="Bdd_Bindings\DataDrivenLogin_FuncTest.cs" />
+    <Compile Include="Bdd_Bindings\TryLogInLogOutSteps.cs" />
     <Compile Include="Bdd_Bindings\UserRegistration_ExistingUser.cs" />
     <Compile Include="Bdd_Bindings\LogInSteps.cs" />
     <Compile Include="Bdd_Features\LogOut.feature.cs">
       <AutoGen>True</AutoGen>
       <DesignTime>True</DesignTime>
       <DependentUpon>LogOut.feature</DependentUpon>
+    </Compile>
+    <Compile Include="Bdd_Features\TryLogInLogOut.feature.cs">
+      <AutoGen>True</AutoGen>
+      <DesignTime>True</DesignTime>
+      <DependentUpon>TryLogInLogOut.feature</DependentUpon>
     </Compile>
     <Compile Include="Bdd_Features\UserRegistration_ExistingUser.feature.cs">
       <AutoGen>True</AutoGen>
@@ -142,6 +148,10 @@
     <None Include="Bdd_Features\LogOut.feature">
       <Generator>SpecFlowSingleFileGenerator</Generator>
       <LastGenOutput>LogOut.feature.cs</LastGenOutput>
+    </None>
+    <None Include="Bdd_Features\TryLogInLogOut.feature">
+      <Generator>SpecFlowSingleFileGenerator</Generator>
+      <LastGenOutput>TryLogInLogOut.feature.cs</LastGenOutput>
     </None>
     <None Include="Config\app.config" />
     <None Include="Bdd_Features\UserRegistration_ExistingUser.feature">
