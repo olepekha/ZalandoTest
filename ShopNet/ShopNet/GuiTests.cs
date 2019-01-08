@@ -14,6 +14,9 @@ using OpenQA.Selenium.Interactions;
 using log4net;
 using log4net.Repository.Hierarchy;
 using NUnit.Framework.Internal;
+using AventStack.ExtentReports;
+using AventStack.ExtentReports.Reporter;
+using AventStack.ExtentReports.Reporter.Configuration;
 
 namespace ShopNet
 {
@@ -26,9 +29,13 @@ namespace ShopNet
         [TestCaseSource(typeof(TestBase), "BrowsersToRunWith")]
         public void HomePage_LinksValidation(String BrowserName) //user should be created
         {
-            Initialize(BrowserName);
+       
             try
             {
+                Initialize(BrowserName);
+                //Create Test report using ExtentReports
+                test = extent.CreateTest("HomePage_LinksValidation");
+                 extent.Flush();
                 driver.Manage().Timeouts().PageLoad = TimeSpan.FromSeconds(30);
                 //driver.Manage().Timeouts().ImplicitWait = TimeSpan.FromSeconds(120);
                 driver.Navigate().GoToUrl("https://www.zalando.nl/dames-home/");
@@ -37,14 +44,14 @@ namespace ShopNet
                 driver.FindElement(By.CssSelector(@".z-navicat-header_gender.z-navicat-header_gender-active")).Click(); 
                 Assert.AreEqual(@"https://www.zalando.nl/dames-home/", driver.Url);
 
-                ////find "Inspiratie" element span.\30 _bb
+                //find "Inspiratie" element span.\30 _bb
                 //waitf.Until(SeleniumExtras.WaitHelpers.ExpectedConditions.ElementIsVisible(By.CssSelector(@"span.\30 _bb")));
 
                 //driver.FindElement(By.CssSelector(@"span.\30 _bb")).Click();
                 //Assert.AreEqual(@"https://www.zalando.nl/dames-home/#", driver.Url);
                                 
                 driver.FindElement(By.CssSelector(@"span.\31 _bb")).Click();
-                Assert.AreEqual(@"https://www.zalando.nl/dameskleding/", driver.Url);
+                Assert.AreEqual(@"https://www.zalando.nl/dames-home/#", driver.Url);
 
 
                 waitf.Until(SeleniumExtras.WaitHelpers.ExpectedConditions.ElementIsVisible(By.ClassName("cat_filterHead-3-7Lz")));
@@ -83,8 +90,9 @@ namespace ShopNet
             }
             catch (Exception ex)
             {
+                test.Fail(ex.StackTrace + ex.Message + ex.Source);
+                //set a logger error format
                 logger.ErrorFormat($"Exception on 'z-navicat-header_gender': Message {ex.Message}; StackTrace:{ex.StackTrace}");
-
                 throw;
             }
         }

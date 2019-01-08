@@ -8,26 +8,39 @@ using System;
 using System.Collections.Generic;
 using log4net.Core;
 using log4net;
+using AventStack.ExtentReports;
+using AventStack.ExtentReports.Reporter;
+using AventStack.ExtentReports.Reporter.Configuration;
+
 
 namespace ShopNet
 {
     public class TestBase
     {
        public IWebDriver driver;
-
        public WebDriverWait waitf;
-
-        TimeSpan t = new TimeSpan(0, 0, 10);//for timer set
-
-    
-
-       public ILog logger ;
+       TimeSpan t = new TimeSpan(0, 0, 10);//for timer set
+        public ILog logger ;
+        protected ExtentReports extent;
+        protected ExtentReports report;
+        protected ExtentHtmlReporter htmlReporter;
+        protected ExtentTest test;
         public TestBase()
         {
             //Log4Net configuration
              XmlConfigurator.Configure();
-            //Creating a logger
+            //Create a logger.logger was in TesBase created and to the app.config added
             logger = log4net.LogManager.GetLogger(typeof(TestBase));
+            // Create test report
+            htmlReporter = new ExtentHtmlReporter(@"C:\Users\Metastorm\Documents\Visual Studio 2013\Projects\ShopNet\ShopNet\testreport.html");
+            htmlReporter.Configuration().Theme = Theme.Dark;
+            htmlReporter.Configuration().DocumentTitle = "Test Report | Olga Lepekha";
+            htmlReporter.Configuration().ReportName = "Test Report | Olga Lepekha";
+
+            extent = new ExtentReports();
+            extent.AttachReporter(htmlReporter);
+
+
         }
 
         public void Initialize(String BrowserName) 

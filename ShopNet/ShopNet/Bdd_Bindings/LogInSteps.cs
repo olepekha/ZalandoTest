@@ -17,6 +17,9 @@ using log4net.Repository.Hierarchy;
 using NUnit.Framework.Internal;
 using SpecFlow.Assist.Dynamic;
 using TechTalk.SpecFlow.Assist;
+using AventStack.ExtentReports;
+using AventStack.ExtentReports.Reporter;
+using AventStack.ExtentReports.Reporter.Configuration;
 
 
 namespace ShopNet.Bdd_Bindings
@@ -31,11 +34,12 @@ namespace ShopNet.Bdd_Bindings
         public void GivenIAmAtTheHomePage(string p0)
         {
             driver = new ChromeDriver();
-           
             waitf = new WebDriverWait(driver, t);
             driver.Navigate().GoToUrl(p0);
-            //driver.Manage().Window.Maximize();
+            driver.Manage().Window.Maximize();
             driver.Manage().Timeouts().ImplicitWait = TimeSpan.FromSeconds(10);
+            
+            
         }
         
         [When(@"I click on the Login link")]

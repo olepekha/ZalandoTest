@@ -10,6 +10,9 @@ using OpenQA.Selenium.Support.UI;
 using NUnit.Framework;
 using System.Diagnostics;
 using System.Threading;
+using AventStack.ExtentReports;
+using AventStack.ExtentReports.Reporter;
+using AventStack.ExtentReports.Reporter.Configuration;
 
 
 namespace ShopNet
