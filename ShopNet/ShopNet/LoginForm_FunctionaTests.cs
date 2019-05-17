@@ -63,8 +63,8 @@ namespace ShopNet
                 driver.FindElement(By.Name("register.password")).SendKeys("Test_Olga78"); //1111111111
 
                 IWebElement radioBtn_gender = driver.FindElement(By.Name("register.gender"));
-                driver.Manage().Timeouts().ImplicitWait = TimeSpan.FromSeconds(120);
-                //waitf.Until(SeleniumExtras.WaitHelpers.ExpectedConditions.VisibilityOfAllElementsLocatedBy(By.Name("register.gender")));
+                //driver.Manage().Timeouts().ImplicitWait = TimeSpan.FromSeconds(120);
+                waitf.Until(SeleniumExtras.WaitHelpers.ExpectedConditions.VisibilityOfAllElementsLocatedBy(By.Name("register.gender")));
                 radioBtn_gender.Click();
 
                 IWebElement checkBtn_TermsAndConditions = driver.FindElement(By.Name("register.terms-and-conditions-checkbox"));
@@ -201,14 +201,14 @@ namespace ShopNet
                 driver.Navigate().GoToUrl("https://accounts.google.com/signin/v2/sl/pwd?continue=https%3A%2F%2Fmail.google.com%2Fmail%2F&osid=1&service=mail&ss=1&ltmpl=default&rm=false&flowName=GlifWebSignIn&flowEntry=AddSession&cid=0&navigationDirection=forward");
                 driver.FindElement(By.Id("identifierId")).SendKeys("testolga77@gmail.com");
                 driver.FindElement(By.Id("identifierNext")).Click();
-                //driver.Manage().Timeouts().ImplicitWait = TimeSpan.FromSeconds(120);
+                //driver.Manage().Timeouts().ImplicitWait = TimeSpan.FromSeconds(20);
                 // Fill out the password field
                 driver.FindElement(By.Name("password")).SendKeys("Test_Olga77");
                 driver.FindElement(By.XPath("//*[@id=\"passwordNext\"]")).Click(); //for apostrophes use backslash \ 
                                                                                    //driver.Manage().Timeouts().ImplicitWait = TimeSpan.FromSeconds(120);
                 waitf.Until(SeleniumExtras.WaitHelpers.ExpectedConditions.UrlContains("#inbox"));
                 driver.PageSource.Contains("Zalando");
-                //driver.Manage().Timeouts().ImplicitWait = TimeSpan.FromSeconds(120);
+               
                 //Thread.Sleep(10000); bad practice
             }
             catch (Exception ex)
@@ -331,6 +331,7 @@ namespace ShopNet
                 driver.FindElement(By.Name("login.password")).SendKeys("");
                 driver.FindElement(By.CssSelector(".z-button.z-coast-reef_login_button.z-button--primary.z-button--button")).Click();
                 var a = driver.FindElement(By.CssSelector(@".z-text.z-notification__content.z-text-detail-micro.z-text-black")).Text;
+                Assert.AreEqual("Controleer of je het juiste e-mailadres en wachtwoord gebruikt hebt en probeer het nog eens.", a);
             }
             catch (Exception ex)
             { test.Fail(ex.StackTrace); }
