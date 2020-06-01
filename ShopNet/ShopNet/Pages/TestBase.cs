@@ -59,8 +59,7 @@ namespace ShopNet
 
                        
         }
-        
-   
+     
 
         [TearDown]
         public void CloseBrowser() 
@@ -68,6 +67,7 @@ namespace ShopNet
 
             driver.Quit();
         }
+
 
         public static IEnumerable<String> BrowsersToRunWith() 
 

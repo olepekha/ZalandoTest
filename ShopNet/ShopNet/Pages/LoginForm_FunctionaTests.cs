@@ -25,7 +25,6 @@ namespace ShopNet
 
     {
 
-
         [Test]
         
         [TestCaseSource(typeof(TestBase), "BrowsersToRunWith")]

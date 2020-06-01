@@ -65,7 +65,7 @@ namespace ShopNet
                 driver.FindElement(By.Name("login.email")).SendKeys(users.Email);
                 driver.FindElement(By.Name("login.password")).SendKeys(users.Password);
             }
-
+                
             driver.Manage().Timeouts().ImplicitWait = TimeSpan.FromSeconds(10);
         }
 
@@ -87,7 +87,7 @@ namespace ShopNet
         [When(@"I click on the Niet Olga\? Uitloggen link at mijn account list")]
         public void WhenIClickOnTheNietOlgaUitloggenLinkAtMijnAccountList()
         {
-            var myAccountElement = driver.FindElement(By.Id("fieldAccountAccountBox"));
+            var myAccountElement = driver.FindElement(By.ClassName(@"z-navicat-header_navToolLabel"));//(By.Id("fieldAccountAccountBox"));
             Thread.Sleep(1000);
             Actions action = new Actions(driver); // include OpenQA.Selenium.Interactions, action works with mouse
             waitf.Until(SeleniumExtras.WaitHelpers.ExpectedConditions.VisibilityOfAllElementsLocatedBy(By.Id("fieldAccountAccountBox")));

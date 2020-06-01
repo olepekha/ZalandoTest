@@ -18,20 +18,21 @@ namespace ShopNet.Bdd_Features
     [System.CodeDom.Compiler.GeneratedCodeAttribute("TechTalk.SpecFlow", "2.3.2.0")]
     [System.Runtime.CompilerServices.CompilerGeneratedAttribute()]
     [NUnit.Framework.TestFixtureAttribute()]
-    [NUnit.Framework.DescriptionAttribute("LogIn")]
-    public partial class LogInFeature
+    [NUnit.Framework.DescriptionAttribute("Error Message_UserRegistration_ExistingUser")]
+    public partial class ErrorMessage_UserRegistration_ExistingUserFeature
     {
         
         private TechTalk.SpecFlow.ITestRunner testRunner;
         
-#line 1 "DataDrivenLogin_FuncTest.feature"
+#line 1 "UserRegistration_ExistingUser.feature"
 #line hidden
         
         [NUnit.Framework.OneTimeSetUpAttribute()]
         public virtual void FeatureSetup()
         {
             testRunner = TechTalk.SpecFlow.TestRunnerManager.GetTestRunner();
-            TechTalk.SpecFlow.FeatureInfo featureInfo = new TechTalk.SpecFlow.FeatureInfo(new System.Globalization.CultureInfo("en-US"), "LogIn", "\tUser should successfully log in to the application with valid credentials", ProgrammingLanguage.CSharp, ((string[])(null)));
+            TechTalk.SpecFlow.FeatureInfo featureInfo = new TechTalk.SpecFlow.FeatureInfo(new System.Globalization.CultureInfo("en-US"), "Error Message_UserRegistration_ExistingUser", "\tError message should appears when I try to create user that already exists in th" +
+                    "e system", ProgrammingLanguage.CSharp, ((string[])(null)));
             testRunner.OnFeatureStart(featureInfo);
         }
         
@@ -64,33 +65,35 @@ namespace ShopNet.Bdd_Features
         }
         
         [NUnit.Framework.TestAttribute()]
-        [NUnit.Framework.DescriptionAttribute("Successfull LogIn")]
+        [NUnit.Framework.DescriptionAttribute("Create New Existing user")]
         [NUnit.Framework.CategoryAttribute("mytag")]
-        public virtual void SuccessfullLogIn()
+        public virtual void CreateNewExistingUser()
         {
-            TechTalk.SpecFlow.ScenarioInfo scenarioInfo = new TechTalk.SpecFlow.ScenarioInfo("Successfull LogIn", new string[] {
+            TechTalk.SpecFlow.ScenarioInfo scenarioInfo = new TechTalk.SpecFlow.ScenarioInfo("Create New Existing user", new string[] {
                         "mytag"});
 #line 5
 this.ScenarioSetup(scenarioInfo);
 #line 6
- testRunner.Given("I am at the \"https://www.zalando.nl/dames-home/\" home page", ((string)(null)), ((TechTalk.SpecFlow.Table)(null)), "Given ");
-#line 7
- testRunner.When("I click on the Login link", ((string)(null)), ((TechTalk.SpecFlow.Table)(null)), "When ");
-#line 8
- testRunner.Then("I go to the Login pop up window", ((string)(null)), ((TechTalk.SpecFlow.Table)(null)), "Then ");
+ testRunner.Given("User is at the registration page", ((string)(null)), ((TechTalk.SpecFlow.Table)(null)), "Given ");
 #line hidden
             TechTalk.SpecFlow.Table table1 = new TechTalk.SpecFlow.Table(new string[] {
+                        "Firstname",
+                        "Lastname",
                         "Email",
                         "Password"});
             table1.AddRow(new string[] {
-                        "testolga78@gmail.com",
-                        "Test_Olga78"});
-#line 9
- testRunner.When("I enter valid email and password", ((string)(null)), table1, "When ");
-#line 14
- testRunner.And("I click Login button", ((string)(null)), ((TechTalk.SpecFlow.Table)(null)), "And ");
-#line 15
- testRunner.Then("I go to the \"https://www.zalando.nl/myaccount/\" page", ((string)(null)), ((TechTalk.SpecFlow.Table)(null)), "Then ");
+                        "dfdfdso",
+                        "dsfsdf",
+                        "testolga77@gmail.com",
+                        "sdasdasdasdsad"});
+#line 7
+ testRunner.When("I enter valid credentials for existing user", ((string)(null)), table1, "When ");
+#line 11
+ testRunner.And("Check all mandatory vields", ((string)(null)), ((TechTalk.SpecFlow.Table)(null)), "And ");
+#line 12
+ testRunner.And("Click registration button", ((string)(null)), ((TechTalk.SpecFlow.Table)(null)), "And ");
+#line 13
+ testRunner.Then("Error message should display", ((string)(null)), ((TechTalk.SpecFlow.Table)(null)), "Then ");
 #line hidden
             this.ScenarioCleanup();
         }
