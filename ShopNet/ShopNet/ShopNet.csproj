@@ -179,9 +179,6 @@
     <Compile Include="Pages\GuiTests.cs" />
     <Compile Include="Pages\LoginForm_FunctionaTests.cs" />
     <Compile Include="Bdd_Bindings\LogOutSteps.cs" />
-    <Compile Include="obj\Debug\TemporaryGeneratedFile_036C0B5B-1481-4323-8D20-8F5ADCB23D92.cs" />
-    <Compile Include="obj\Debug\TemporaryGeneratedFile_5937a670-0e60-4077-877b-f7221da3dda1.cs" />
-    <Compile Include="obj\Debug\TemporaryGeneratedFile_E7A71F73-0F8D-4B9B-B56E-8E70B10BC5D3.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
     <Compile Include="Pages\ShoppingCart_FunctionalTests.cs" />
     <Compile Include="Bdd_Bindings\SpecFlowFeature1Steps.cs" />
@@ -218,20 +215,15 @@
     <None Include="Config\packages.config">
       <SubType>Designer</SubType>
     </None>
-    <None Include="obj\Release\ShopNet.csproj.CoreCompileInputs.cache" />
     <None Include="packages.config" />
   </ItemGroup>
   <ItemGroup>
-    <Content Include="bin\Debug\ShopNet.dll" />
-    <Content Include="bin\Debug\ShopNet.pdb" />
     <Content Include="chromedriver.exe">
       <CopyToOutputDirectory>Always</CopyToOutputDirectory>
     </Content>
     <Content Include="extent-config.xml" />
   </ItemGroup>
-  <ItemGroup>
-    <Folder Include="bin\Release\" />
-  </ItemGroup>
+  <ItemGroup />
   <Choose>
     <When Condition="'$(VisualStudioVersion)' == '10.0' And '$(IsCodedUITest)' == 'True'">
       <ItemGroup>
