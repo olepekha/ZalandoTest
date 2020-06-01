@@ -15,7 +15,6 @@ using OpenQA.Selenium.Interactions;
 using log4net;
 using log4net.Repository.Hierarchy;
 using NUnit.Framework.Internal;
-using SpecFlow.Assist.Dynamic;
 using TechTalk.SpecFlow.Assist;
 using AventStack.ExtentReports;
 using AventStack.ExtentReports.Reporter;

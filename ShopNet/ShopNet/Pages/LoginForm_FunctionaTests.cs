@@ -37,7 +37,7 @@ namespace ShopNet
                 test = extent.CreateTest("CreateUserAndLogin");
                 var status = TestContext.CurrentContext.Result.Outcome.Status;
 
-                var stackTrace = "+ TestContext.CurrentContext.Result.StackTrace + ";
+               // var stackTrace = "+ TestContext.CurrentContext.Result.StackTrace + ";
 
                 var errorMessage = TestContext.CurrentContext.Result.Message;
 
