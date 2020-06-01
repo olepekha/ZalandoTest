@@ -66,7 +66,7 @@ namespace ShopNet.Bdd_Bindings
         [When(@"I click on Login button")]
         public void WhenIClickOnLoginButton()
         {
-            driver.FindElement(By.CssSelector(".z-button.z-coast-reef_login_button.z-button--primary.z-button--button")).Click();
+            driver.FindElement(By.CssSelector("button[data-testid='login_button']")).Click();
             driver.Manage().Timeouts().ImplicitWait = TimeSpan.FromSeconds(30);
         }
         
