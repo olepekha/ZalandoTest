@@ -58,9 +58,6 @@ namespace ShopNet
                 //cart contains 1 item
                 Assert.AreEqual(driver.FindElement(By.ClassName("z-coast-base__tile-title")).Text, "Winkelwagen (1 items)");
 
-
-
-
             }
             catch (Exception ex)
             {

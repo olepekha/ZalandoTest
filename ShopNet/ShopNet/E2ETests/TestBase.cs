@@ -27,18 +27,18 @@ namespace ShopNet
         protected ExtentTest test;
         public TestBase()
         {
-            //Log4Net configuration
-             XmlConfigurator.Configure();
-            //Create a logger.logger was in TesBase created and to the app.config added
-            logger = log4net.LogManager.GetLogger(typeof(TestBase));
-            // Create test report
-            htmlReporter = new ExtentHtmlReporter(@"C:\Users\Metastorm\Documents\Visual Studio 2013\Projects\ShopNet\ShopNet\testreport.html");
-            htmlReporter.Configuration().Theme = Theme.Dark;
-            htmlReporter.Configuration().DocumentTitle = "Test Report | Olga Lepekha";
-            htmlReporter.Configuration().ReportName = "Test Report | Olga Lepekha";
+         //Log4Net configuration
+         XmlConfigurator.Configure();
+         //Create a logger.logger was in TesBase created and to the app.config added
+         logger = log4net.LogManager.GetLogger(typeof(TestBase));
+         // Create test report
+         htmlReporter = new ExtentHtmlReporter(@"C:\Users\Metastorm\Documents\Visual Studio 2013\Projects\ShopNet\ShopNet\testreport.html");
+         htmlReporter.Configuration().Theme = Theme.Dark;
+         htmlReporter.Configuration().DocumentTitle = "Test Report | Olga Lepekha";
+         htmlReporter.Configuration().ReportName = "Test Report | Olga Lepekha";
 
-            extent = new ExtentReports();
-            extent.AttachReporter(htmlReporter);
+         extent = new ExtentReports();
+         extent.AttachReporter(htmlReporter);
 
 
         }
@@ -64,8 +64,7 @@ namespace ShopNet
         [TearDown]
         public void CloseBrowser() 
         {
-
-            driver.Quit();
+           driver.Quit();
         }
 
 

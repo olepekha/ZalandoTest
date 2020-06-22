@@ -139,6 +139,9 @@
     <Reference Include="RazorEngine, Version=3.9.0.0, Culture=neutral, PublicKeyToken=9ee697374c7e744a, processorArchitecture=MSIL">
       <HintPath>..\packages\RazorEngine.3.9.0\lib\net45\RazorEngine.dll</HintPath>
     </Reference>
+    <Reference Include="SeleniumExtras.PageObjects, Version=3.11.0.0, Culture=neutral, processorArchitecture=MSIL">
+      <HintPath>..\packages\DotNetSeleniumExtras.PageObjects.3.11.0\lib\net45\SeleniumExtras.PageObjects.dll</HintPath>
+    </Reference>
     <Reference Include="SeleniumExtras.WaitHelpers, Version=3.11.0.0, Culture=neutral, processorArchitecture=MSIL">
       <HintPath>..\packages\DotNetSeleniumExtras.WaitHelpers.3.11.0\lib\net45\SeleniumExtras.WaitHelpers.dll</HintPath>
     </Reference>
@@ -201,13 +204,23 @@
     <Compile Include="Bdd_Bindings\TryLogInLogOutSteps.cs" />
     <Compile Include="Bdd_Bindings\UserRegistration_ExistingUser.cs" />
     <Compile Include="Bdd_Bindings\LogInSteps.cs" />
-    <Compile Include="Pages\GuiTests.cs" />
-    <Compile Include="Pages\LoginForm_FunctionaTests.cs" />
+    <Compile Include="E2ETests\CartUserTest.cs" />
+    <Compile Include="E2ETests\EmailUserTest.cs" />
+    <Compile Include="E2ETests\LoginUserTest.cs" />
+    <Compile Include="E2ETests\Obsolete\GuiTests.cs" />
+    <Compile Include="E2ETests\RegisterUserTest.cs" />
+    <Compile Include="E2ETests\Obsolete\LoginForm_FunctionalTests.cs" />
     <Compile Include="Bdd_Bindings\LogOutSteps.cs" />
+    <Compile Include="Pages\CartUserPage.cs" />
+    <Compile Include="Pages\EmailUserPage.cs" />
+    <Compile Include="Pages\LoginUserPage.cs" />
+    <Compile Include="Pages\RegisterUserPage.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
-    <Compile Include="Pages\ShoppingCart_FunctionalTests.cs" />
+    <Compile Include="E2ETests\Obsolete\ShoppingCart_FunctionalTests.cs" />
     <Compile Include="Bdd_Bindings\SpecFlowFeature1Steps.cs" />
-    <Compile Include="Pages\TestBase.cs" />
+    <Compile Include="E2ETests\TestBase.cs" />
+    <Compile Include="TDD\FrizzBuzz.cs" />
+    <Compile Include="TDD\Romain.cs" />
     <Compile Include="TDD\TDD_Course.cs" />
   </ItemGroup>
   <ItemGroup>
